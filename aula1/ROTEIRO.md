@@ -15,13 +15,13 @@ Existem dois videos de apoio para essa aula:
 
 O **NodeJS** é um _runtime_ de Javascript, sendo ele responsável por interpretar aplicações em JS a fim de roda-las em um servidor, por exemplo. Nesse curso a usaremos para executar nossas aplicações Web e APi. Para fazer a instalação do Node basta seguir os seguintes passos:
 
-1. Acesse o **link** de download em seu [site oficial](https://nodejs.org/en/)
+1. Acesse o **link** de download em seu [site oficial](https://nodejs.org/en/)  
    ![NodeJs Download Page](images/node/nodejs-site.png)
 
-2. Ná página selecione a versão desejada. O Recomendado é utilizar a **última versão estável** (LTS), sendo essa a **14.17.3** no dia de escrita deste roteiro.
+2. Ná página selecione a versão desejada. O Recomendado é utilizar a **última versão estável** (LTS), sendo essa a **14.17.3** no dia de escrita deste roteiro.  
    ![Download LTS Version](images/node/download-lts.png)
 
-3. A seguir, execute o arquivo baixado e siga o fluxo de instalação normal, marcando apenas o _checkbox_ referente aos **termos de serviço**
+3. A seguir, execute o arquivo baixado e siga o fluxo de instalação normal, marcando apenas o _checkbox_ referente aos **termos de serviço**  
    ![Node installation step 1](images/node/install-1.png)
    ![Node installation step 2](images/node/install-2.png)
    ![Node installation step 3](images/node/install-3.png)
@@ -31,18 +31,18 @@ O **NodeJS** é um _runtime_ de Javascript, sendo ele responsável por interpret
    ![Node installation step 7](images/node/install-7.png)
    ![Node installation step 8](images/node/install-8.png)
 
-4. Para **verificar sua instalação** abra uma janela do terminal e execute os comandos `npm --version` e `node --version`. O comando **node** será utilizado para execução das aplicações, enquanto o **npm** é o gerenciador de pacotes para bibliotecas Javascript. Os seguintes _outputs_ deveria ser vistos, mostrando a versão instalada de ambos comandos.
+4. Para **verificar sua instalação** abra uma janela do terminal e execute os comandos `npm --version` e `node --version`. O comando **node** será utilizado para execução das aplicações, enquanto o **npm** é o gerenciador de pacotes para bibliotecas Javascript. Os seguintes _outputs_ deveria ser vistos, mostrando a versão instalada de ambos comandos.  
    ![Node version check](images/node/version-check.png)
 
 ## Configuração de Git
 
 O **Git** é o gerenciador de versões mais utilizado no mundo, de forma que com ele podemos criar novas versões de nossas aplicações, assim como gerenciar versões já criadas. Sua instalação também é bem simples.
 
-1. Acesso o **link** de download em seu [site oficial](https://git-scm.com/downloads), selecione seu **sistema operacional** e clique no botão de **download**
+1. Acesso o **link** de download em seu [site oficial](https://git-scm.com/downloads), selecione seu **sistema operacional** e clique no botão de **download**  
    ![Git download Page](images/git/git-download.jpg)
    ![Git download Page](images/git/git-downloaded.png)
 
-2. Após feito o download execute o arquivo e siga as instruções de instalação. Não é necessário alterar **nenhuma** das opções selecionadas.
+2. Após feito o download execute o arquivo e siga as instruções de instalação. Não é necessário alterar **nenhuma** das opções selecionadas.  
    ![Git installation step 1](images/git/install-1.png)
    ![Git installation step 2](images/git/install-2.png)
    ![Git installation step 3](images/git/install-3.png)
@@ -59,11 +59,11 @@ O **Git** é o gerenciador de versões mais utilizado no mundo, de forma que com
 
 O **Visual Studio Code** é um editor de código fonte extremamente popular, tendo um grande foco no desenvolvimento de **Javascript** e **Typescript**. Ele será utilizado nos exemplos mostrados durante as aulas, sendo que a seguir mostrarei como instalá-lo.
 
-1. Acesso o **link** de download em seu [site oficial](https://code.visualstudio.com/Download) e selecione o link de download referente ao seu **sistema operacional**
+1. Acesso o **link** de download em seu [site oficial](https://code.visualstudio.com/Download) e selecione o link de download referente ao seu **sistema operacional**  
    ![VSCode download Page](images/vscode/download-page.png)
    ![VSCode download Page](images/vscode/downloaded-page.png)
 
-2. Após feito o download execute o arquivo e siga as instruções de instalação conforme as imagens abaixo.
+2. Após feito o download execute o arquivo e siga as instruções de instalação conforme as imagens abaixo.  
    ![VSCode installation step 1](images/vscode/install-1.png)
    ![VSCode installation step 2](images/vscode/install-2.png)
    ![VSCode installation step 3](images/vscode/install-3.png)
@@ -72,11 +72,11 @@ O **Visual Studio Code** é um editor de código fonte extremamente popular, ten
    ![VSCode installation step 6](images/vscode/install-6.png)
    ![VSCode installation step 7](images/vscode/install-7.png)
 
-3. Ao finalizar a instalação, uma nova janela do **VSCode** deve se abrir.
+3. Ao finalizar a instalação, uma nova janela do **VSCode** deve se abrir.  
    ![VSCode window](images/vscode/new-window.png)
 
-4. Na página inicial existe um simples tutorial explicando algumas das **funcionalidades básicas** da aplicação. Porém por enquanto iremos para o **painel de extensões**.
+4. Na página inicial existe um simples tutorial explicando algumas das **funcionalidades básicas** da aplicação. Porém por enquanto iremos para o **painel de extensões**.  
    ![Extensions panel](images/vscode/extensions-panel.png)
 
-5. No painel procuraremos pela extensão **Gitlens**, ela adiciona funcionalidades extras relacionadas ao **Git** ao VSCode. Por enquanto basta instalá-la.
+5. No painel procuraremos pela extensão **Gitlens**, ela adiciona funcionalidades extras relacionadas ao **Git** ao VSCode. Por enquanto basta instalá-la.  
    ![Gitlens](images/vscode/gitlens.png)
