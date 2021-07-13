@@ -80,3 +80,29 @@ O **Visual Studio Code** é um editor de código fonte extremamente popular, ten
 
 5. No painel procuraremos pela extensão **Gitlens**, ela adiciona funcionalidades extras relacionadas ao **Git** ao VSCode. Por enquanto basta instalá-la.  
    ![Gitlens](images/vscode/gitlens.png)
+
+## Executando a API e o App Web
+
+Como mencionado, durante nossas aulas práticas usaremos duas aplicações como base para aplicação do que formos aprendendo. Dessa forma utilizaremos uma **API** e um **Site** em **Typescript**, que utilizam respectivamente **ExpressJS** e **NextJS** em sua construção. Ambas aplicações podem ser encontradas no formato `.zip` (api.zip e web.zip) nesta mesma pasta. Inicialmente descomprima-as e siga os passo a seguir, nos quais mostrarei como executar ambas aplicações.
+
+1. Apos descomprimir ambas as pastas, rode o comando `npm install` dentro de cada uma delas, de forma a instalar as **bibliotecas** necessárias para executa-las.  
+   ![NPM installing](images/apps/npm-installing.png)
+   ![NPM installed](images/apps/npm-installed.png)
+
+2. Tendo instalado as dependências, crie um arquivo `.env` em cada pasta. Coloque respectivamente na **API** e no **Site** as seguintes variáveis:
+
+   ```.env
+      # API
+      NODE_ENV=development
+      APP_PORT=5000
+
+      # Web
+      NEXT_PUBLIC_API_URL=http://localhost:5000
+   ```
+
+3. Por fim, basta executar ambas aplicações rodando o comando `npm run dev` para cada uma delas.  
+   ![API running](images/apps/api-running.png)
+   ![Web running](images/apps/web-running.png)
+
+4. Sua aplicação deveria estar rodando na port **3000**, logo basta acessa <http://localhost:3000> e usar o site  
+   ![App running](images/apps/running-app.png)
