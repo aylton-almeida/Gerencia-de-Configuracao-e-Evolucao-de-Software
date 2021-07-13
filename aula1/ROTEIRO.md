@@ -1,0 +1,55 @@
+# Aula 1 - Roteiro
+
+Durante essa disciplina iremos desenvolver uma aplicação, essa sendo uma **API REST** utilizando **Typescript**, com o objetivo de passar por todos os pontos referenciados pela gerência de configuração de uma aplicação.
+
+Também usaremos outra aplicação desenvolvida em **NextJS** a fim de visualizar e inserir dados da nossa **API**.
+
+Para realização desse objetivo esse roteiro mostrará como fazer a **configuração de um computador** a fim de prepara-lo para as possíveis tarefas que serão realizadas. Também serão mostrados os primeiros passos para **executar as aplicações** com que trabalharemos.
+
+Existem dois videos de apoio para essa aula:
+
+- **Configuração de um VM Windows:**
+- **Configuração de um computador:**
+
+## Configuração do NodeJS
+
+O **NodeJS** é um _runtime_ de Javascript, sendo ele responsável por interpretar aplicações em JS a fim de roda-las em um servidor, por exemplo. Nesse curso a usaremos para executar nossas aplicações Web e APi. Para fazer a instalação do Node basta seguir os seguintes passos:
+
+1. Acesse o **link** de download em seu [site oficial](https://nodejs.org/en/)
+   ![NodeJs Download Page](images/node/nodejs-site.png)
+
+2. Ná página selecione a versão desejada. O Recomendado é utilizar a **última versão estável** (LTS), sendo essa a **14.17.3** no dia de escrita deste roteiro.
+   ![Download LTS Version](images/node/download-lts.png)
+
+3. A seguir, execute o arquivo baixado e siga o fluxo de instalação normal, marcando apenas o _checkbox_ referente aos **termos de serviço**
+   ![Node installation step 1](images/node/install-1.png)
+   ![Node installation step 2](images/node/install-2.png)
+   ![Node installation step 3](images/node/install-3.png)
+   ![Node installation step 4](images/node/install-4.png)
+   ![Node installation step 5](images/node/install-5.png)
+   ![Node installation step 6](images/node/install-6.png)
+   ![Node installation step 7](images/node/install-7.png)
+   ![Node installation step 8](images/node/install-8.png)
+
+4. Para **verificar sua instalação** abra uma janela do terminal e execute os comandos `npm --version` e `node --version`. O comando **node** será utilizado para execução das aplicações, enquanto o **npm** é o gerenciador de pacotes para bibliotecas Javascript. Os seguintes _outputs_ deveria ser vistos, mostrando a versão instalada de ambos comandos.
+   ![Node version check](images/node/version-check.png)
+
+## Configuração de Git
+
+O **Git** é o gerenciador de versões mais utilizado no mundo, de forma que com ele podemos criar novas versões de nossas aplicações, assim como gerenciar versões já criadas. Sua instalação também é bem simples.
+
+1. Acesso o **link** de download em seu [site oficial](https://git-scm.com/downloads), selecione seu **sistema operacional** e clique no botão de **download**
+   ![Git download Page](images/git/git-download.jpg)
+   ![Git download Page](images/git/git-downloaded.png)
+
+2. Após feito o download execute o arquivo e siga as instruções de instalação. Não é necessário alterar **nenhuma** das opções selecionadas.
+   ![Git installation step 1](images/git/install-1.png)
+   ![Git installation step 2](images/git/install-2.png)
+   ![Git installation step 3](images/git/install-3.png)
+   ![Git installation step 4](images/git/install-4.png)
+   ![Git installation step 5](images/git/install-5.png)
+   ![Git installation step 6](images/git/install-6.png)
+   ![Git installation step 7](images/git/install-7.png)
+
+3. Para **verificar sua instalação** abra uma janela do terminal e execute o comando `git --version` e verifique a versão do **git** que foi instalada.
+   ![Git version check](images/git/version-check.png)
