@@ -52,4 +52,31 @@ O **Git** é o gerenciador de versões mais utilizado no mundo, de forma que com
    ![Git installation step 7](images/git/install-7.png)
 
 3. Para **verificar sua instalação** abra uma janela do terminal e execute o comando `git --version` e verifique a versão do **git** que foi instalada.
+
    ![Git version check](images/git/version-check.png)
+
+## Configuração do VSCode
+
+O **Visual Studio Code** é um editor de código fonte extremamente popular, tendo um grande foco no desenvolvimento de **Javascript** e **Typescript**. Ele será utilizado nos exemplos mostrados durante as aulas, sendo que a seguir mostrarei como instalá-lo.
+
+1. Acesso o **link** de download em seu [site oficial](https://code.visualstudio.com/Download) e selecione o link de download referente ao seu **sistema operacional**
+   ![VSCode download Page](images/vscode/download-page.png)
+   ![VSCode download Page](images/vscode/downloaded-page.png)
+
+2. Após feito o download execute o arquivo e siga as instruções de instalação conforme as imagens abaixo.
+   ![VSCode installation step 1](images/vscode/install-1.png)
+   ![VSCode installation step 2](images/vscode/install-2.png)
+   ![VSCode installation step 3](images/vscode/install-3.png)
+   ![VSCode installation step 4](images/vscode/install-4.png)
+   ![VSCode installation step 5](images/vscode/install-5.png)
+   ![VSCode installation step 6](images/vscode/install-6.png)
+   ![VSCode installation step 7](images/vscode/install-7.png)
+
+3. Ao finalizar a instalação, uma nova janela do **VSCode** deve se abrir.
+   ![VSCode window](images/vscode/new-window.png)
+
+4. Na página inicial existe um simples tutorial explicando algumas das **funcionalidades básicas** da aplicação. Porém por enquanto iremos para o **painel de extensões**.
+   ![Extensions panel](images/vscode/extensions-panel.png)
+
+5. No painel procuraremos pela extensão **Gitlens**, ela adiciona funcionalidades extras relacionadas ao **Git** ao VSCode. Por enquanto basta instalá-la.
+   ![Gitlens](images/vscode/gitlens.png)
