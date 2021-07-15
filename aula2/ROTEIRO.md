@@ -2,7 +2,7 @@
 
 O objetivo dessa aula é fazer a introdução ao gerenciamento de versões de uma aplicação utilizando a ferramenta **Git**. Para isso, faremos modificações em nossa **Students API** a fim de criarmos novas versões que podem ser revisadas para que possamos ver um **histórico de modificações** da aplicações. Ao final do roteiro, apresento a atividade proposta para essa aula.
 
-## Fazendo modificações
+## Gerenciando versões localmente com o Git
 
 O primeiro passo de todos é **inicializar** o **Git** em nossa aplicação. Isso pode ser feito por meio do comando `git init`. Ele gera uma **pasta oculta** `.git`, essa que armazena os dados de versionamento da aplicação. Para executar o comando, basta abrir a pasta do projeto em um **terminal**, abaixo ele foi aberto no **VSCode** e estou usando seu terminal integrado.
 
@@ -49,6 +49,8 @@ Estando em uma nova _branch_ podemos fazer quando modificações e _commits_ qui
 ![Git merge](images/git-merge.png)
 
 Como podemos ver acima, após finalizada nossa nova feature, eu peguei ela e coloquei em nossa _branch_ principal, sendo que o **git** nos da um relatório mostrando quais arquivos foram modificados e quantas linhas foram adicionadas (simbolizadas pelo mais) por exemplo.
+
+## Atividade Proposta
 
 Para utilizar os conhecimento aprendidos nessa aula, realize mudanças em nossa **Students API** a fim de criar uma nova versão, para isso:
 
