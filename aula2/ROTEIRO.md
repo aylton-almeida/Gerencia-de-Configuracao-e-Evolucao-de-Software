@@ -60,4 +60,26 @@ Para utilizar os conhecimento aprendidos nessa aula, realize mudanças em nossa 
 - Faça as modificações necessárias e crie uma nova versão
 - Faça o _merge_ de sua nova feature na branch **master**
 
-Como recomendação, uma feature interessante é uma rota de `update` para os estudantes, na qual ela recebe um `studentId` e o **json** contendo os atributos a serem modificados no estudante daquele id. Estou disponível para qualquer dúvida que vocês venham a ter.
+Como recomendação, uma feature interessante é uma rota de `update` para os estudantes, na qual ela recebe um `studentId` e o **JSON\*** contendo os atributos a serem modificados no estudante daquele id. Estou disponível para qualquer dúvida que vocês venham a ter.
+
+**JSON:** Javascript Object Notation, ou JSON, é um padrão de **armazenamento** e **transporte** de dados no formato texto utilizado com frequência por **aplicações Web**. Nele são usados pares de **chave/valor** para representar valores reais. Abaixo está um simples exemplo de como representar um **estudante** de nossa **API** seguindo esse padrão:
+
+```JSON
+  {
+    "id": 1,
+    "name": "John Doe",
+    "birth": "1999-01-01T00:00:00.000Z",
+    "email": "john.doe@email.com",
+    "city": "Belo Horizonte",
+    "courses": [
+      {
+        "name": "Calculo 1",
+        "teacher": "Teacher 1"
+      },
+      {
+        "name": "Calculo 2",
+        "teacher": "Teacher 2"
+      },
+    ]
+  }
+```
