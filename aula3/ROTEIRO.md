@@ -59,6 +59,6 @@ Por fim, para baixarmos uma modificação feita por outra pessoa ou em outro com
 
 ## Atividade Proposta
 
-Para utilizar os conhecimento aprendidos nessa aula, crie um repositório no **Github** e envie sua api local para ele. Tendo salvo ela remotamente, faça uma nova feature e utilize os comandos `git` aprendidos para enviar suas mudanças ao repositório remoto.
+Para utilizar os conhecimento aprendidos nessa aula, crie **um repositório no Github** e envie sua api local para ele. Tendo salvo ela remotamente, faça uma **nova feature** e utilize os comandos `git` aprendidos para enviar suas mudanças ao repositório remoto.
 
 Como recomendação, uma nova feature interessante é uma rota de `delete` para os estudantes, na qual ela recebe um `studentId` e caso ele exista, deleta aquele estudante. Estou disponível para qualquer dúvida que vocês venham a ter.
