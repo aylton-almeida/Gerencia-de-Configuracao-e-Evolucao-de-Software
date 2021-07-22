@@ -14,7 +14,7 @@ A seguir está uma breve planejamento das aulas que teremos:
 
 4. Implementação de **Testes unitários** em plataformas em **NodeJS**.
 
-5. Introdução à um pipeline de **integração continua** utilizando o **Github Actions**.
+5. Introdução ao **Firebase** para fazer _hosting_ de um **app Web**.
 
 6. Construção de um pipeline de **CI/CD** básico com o **Github Actions**.
 

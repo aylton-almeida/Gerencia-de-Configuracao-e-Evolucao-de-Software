@@ -1,6 +1,6 @@
 # Aula 2 - Roteiro
 
-O objetivo dessa aula é fazer a introdução da nossa aplicação ao gerenciamento de versões utilizando a ferramenta **Git**. Para isso, faremos modificações em nossa **Students API** a fim de criarmos novas versões que podem ser revisadas para que possamos ver um **histórico de modificações** da aplicações. Ao final do roteiro, apresento a atividade proposta para essa aula.
+O objetivo desta aula é fazer a introdução da nossa aplicação ao gerenciamento de versões utilizando a ferramenta **Git**. Para isso, faremos modificações em nossa **Students API** a fim de criarmos novas versões que podem ser revisadas para que possamos ver um **histórico de modificações** da aplicações. Ao final do roteiro, apresento a atividade proposta para essa aula.
 
 ## Gerenciando versões localmente com o Git
 
