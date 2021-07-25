@@ -91,33 +91,6 @@ Quando abrimos os detalhes do _job listing_ podemos ver que a _action_ **checkou
 
 ![Listing job details](images/7-listing-job-details.png)
 
-Por ultimo, precisamos ver como configurar nossos _pipeline_ para que ele use variáveis de ambientes como as duas presentes no `.env` de nossa **API**. Para adicionar variáveis de ambiente ao nosso projeto, vamos alterar nosso _job_ "Say Hello" de forma que ele diga o nome escrito em uma variável `NAME`.
-
-```yaml
-jobs:
-  hello:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Say Hello
-        # Declarar variáveis é tão simples quanto declarar um atributo env e chamar os valores armazenados nos secrets do repositório
-        env:
-          NAME: ${{secrets.NAME}}
-        run: echo "Hello $NAME"
-```
-
-Para armazenar a variável em nosso repositório, precisamos ir em _settings > secrets_ e adicionar uma nova variável.
-
-![Settings Secrets](images/8-github-secrets.png)
-![Name Secret](images/9-name-variable.png)
-
-Por fim, vamos criar um novo **commit** com essa modificação em nosso _job_ e verificar que ele é executado corretamente.
-
-![Commit changes](images/10-commit-changes.png)
-![Hello Name](images/11-hello-name.png)
-
-Como podemos ver, foi escrito 'Hello \*\*\*', isso ocorre pois o próprio **Github** censura as variáveis durante as _pipelines_ por questões de segurança.
-
 ## Atividade Proposta
 
 Para colocarmos em prática o que vimos hoje, vamos criar uma pipeline simples para o nosso projeto. Nela devemos fazer o **checkout** dentro dele, rodar todos os testes e executar um _build_, listando ao fim o conteúdo da pasta `dist` com os arquivos prontos para implantação do app. Para isso precisamos fazer os seguintes passos:
@@ -127,4 +100,4 @@ Para colocarmos em prática o que vimos hoje, vamos criar uma pipeline simples p
 - Use o comando `npm run build` para fazer o _build_ do projeto.
 - Use o comando `ls dist` para listar o conteúdo da pasta `dist`.
 
-Lembre-se que em uma _pipeline_ segura, caso os testes falhem o _build_ não será executado. Também é interessante declarar nossas variáveis de ambiente (`$NODE_ENV` e `$APP_PORT`) durante as etapas de _test_ e _build_.
+Lembre-se que em uma _pipeline_ segura, caso os testes falhem o _build_ não será executado.
