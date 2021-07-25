@@ -1,6 +1,5 @@
 # Aula 5 - Roteiro
 
-Para essa aula mostraremos como **implementar** e **executar** **testes unitários**. Para isso, usaremos as bibliotecas **Jest** para executar os testes e **supertest** para construi-los.
 Nesta aula mostrarei como construir um _pipeline_ usando o **Github Actions** com o objetivo de automatizar o processo de _build_ e _teste_ de um projeto, assim como o _deploy_ dele. Essa pratica também é conhecida como _CI_ (Continuous Integration) e _CD_ (Continuous Delivery).
 
 ## Preparando uma pipeline simples

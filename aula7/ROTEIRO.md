@@ -1,95 +1,52 @@
-# Aula 5 - Roteiro
+# Aula 7 - Roteiro
 
-Para essa aula mostraremos como **implementar** e **executar** **testes unitários**. Para isso, usaremos as bibliotecas **Jest** para executar os testes e **supertest** para construi-los.
-Nesta aula mostrarei como construir um _pipeline_ usando o **Github Actions** com o objetivo de automatizar o processo de _build_ e _teste_ de um projeto, assim como o _deploy_ dele. Essa pratica também é conhecida como _CI_ (Continuous Integration) e _CD_ (Continuous Delivery).
+Nesta aula iremos aprender a declarar _containers_ usando arquivos `Dockerfile`. Também aprenderemos como fazer a _build_ deles e executa-los, a fim de permitir uma distribuição mais fácil e maior escalabilidade para nossa aplicação.
 
-## Preparando uma pipeline simples
+Para essa aula, preparei um vídeo mostrando como configurar um ambiente **Docker** no **Windows** por meio da utilização do **WSL**:
 
-Para criar uma pipeline pelo **Github Actions** basta criarmos as pastas `.github/workflows` no diretório de nosso repositório e dentro dela criarmos um arquivo dentro `main.yml` (`yml` ou `yaml` é um formato de estruturação de dados moderno, leia mais sobre [aqui](https://pt.wikipedia.org/wiki/YAML)).
+<!-- TODO: Colocar link aqui -->
 
-![Main.yml](images/1-main-yml.png)
+- [Configuração do Docker com WSL]()
 
-Tendo criado nosso arquivo, precisamos agora escrever dentro dele o que nossa _pipeline_ deverá fazer. Para o propósito dessa aula, queremos **instalar os pacotes** necessários para nossa aplicação, fazer o _build_ do app e executar os **testes unitários**. Futuramente também iremos criar um _deploy_ para o servidor.
+## Criando um container Docker
 
-Para começar, vamos ver alguns comandos básicos do **Github Actions**, lembrando que a documentação completa pode ser encontrada [aqui](https://docs.github.com/en/actions).
+O primeiro passo para criação de um _container_ está na criação de um arquivo `Dockerfile`. Nesse arquivo precisaremos declarar os comandos necessários para configuração e execução de nosso container. Para este roteiro, vamos criar um novo projeto em **NodeJS** que nos diga uma saudação com base em um nome armazenado em uma variável de ambiente. Para isso, basta criarmos uma nova pasta e executarmos o comando `npm init -y` e abrir o projeto no **VSCode**.
 
-```yaml
-# O atributo name define o nome de nossa pipeline, para que possamos localizá-la no gitHub.
-name: Students API Pipeline
+![NPM Init](images/1-npm-init.png)
 
-# O atributo on define quando um pipeline deverá ser executado. Nessa caso precisamos que ele seja
-# executado quando um novo push for feito ao repositório na branch main
-on:
-  push:
-    branch: main
+No **VSCode**, vamos criar um arquivo `index.js`, que nada mais faz do que ler uma variável de ambiente `NAME` e diz 'hello' para ela (Em **Javascript** a leitura de variáveis de ambiente é feita por meio do objeto `process.env`). Para testar nosso app, vamos adicionar um comando `start` ao `package.json` que executa nosso arquivo `index.js` e testar nosso app.
 
-# O atributo jobs define os jobs que serão executados.
-jobs:
-  # Inicialmente vamos declarar um job com o nome hello, que fará um simples 'hello world'
-  hello:
-    # O atributo runs-on define em qual ambiente o job será executado. Nesse caso usaremos um ambiente Ubuntu
-    runs-on: ubuntu-latest
+![Hello Name](images/2-hello-name.png)
 
-    # O atributo steps define os passos que serão executados durante o job.
-    steps:
-      # Nesse caso, teremos somente um step chamado 'Say Hello' que simplesmente imprimirá o texto 'Hello World'
-      - name: Say Hello
-        run: echo "Hello World"
+Por enquanto iremos ver apenas um 'Hello undefined', já que não declaramos nenhuma variável de ambiente. Porém iremos resolver isso na declaração de nosso container. Comece criando um arquivo `Dockerfile` e siga os passos abaixo para aprender os comandos básicos.
+
+```Dockerfile
+
+# O comando FROM diz ao container qual imagem base usar, nesse
+# caso usaremos a imagem do NodeJS versão estável (LTS)
+FROM node:lts
+
+# O comando WORKDIR declara em qual pasta estaremos trabalho no
+# container. Aqui estamos trabalhando dentro de uma pasta
+# chamada app
+WORKDIR app
+
+# O comando copy faz exatamente o que ele sugere, copia os
+# arquivos da máquina local para o container, aqui estamos
+# copiando ambos index.js e package.json para a pasta atual
+# dentro do container.
+COPY index.js package.json .
+
+# O comando ENV é usado para declarar variáveis de ambiente
+# Aqui estamos declarando uma variável NAME com valor 'John'
+ENV NAME 'John'
+
+# O comando CMD é usado para declarar o que o container fará
+# quando for executado. Em nosso caso ele executará o comando
+# npm start
+CMD 'npm start'
+
 ```
-
-Insira o código acima dentro de `main.yml`, crie um novo **commit** e envie para o **Github** por meio de um **push**.
-
-![Say Hello Pipeline](images/2-say-hello.png)
-
-Se formos até o **Github**, entrarmos em nosso repositório e acessarmos a seção **actions** veremos que a pipeline foi executada com sucesso.
-
-![Pipeline successful](images/3-pipeline-successful.png)
-
-Se selecionarmos a _pipeline_ e escolhermos o _job hello_, podemo ver os _steps_ executados no job. No caso toda **pipeline** no **Github Actions** possui dois _steps_ padrão: o **Set up job** e **Complete Job**, que preparam o ambiente para execução de nossa _pipeline_. No nosso caso, também é possível ver o _step_ _Say Hello_, que simplesmente imprime o texto 'Hello World', como instruímos ele a fazer.
-
-![Pipeline details](images/4-pipeline-details.png)
-
-Agora que sabemos o básico do **Github Actions** vamos explorar um outro recurso muito importante. Esse recuso são as **actions**, que são repositórios públicos que definem ações usadas com frequência dentro de _pipelines_. Um exemplo muito usado é a [**checkout**](https://github.com/actions/checkout) que nos permite fazer o **checkout** em nosso repositório durante a _pipeline_, de forma a usarmos seus arquivos durante ela.
-Um exemplo simples é usa-la para entrar no repositório e listar todos diretórios e arquivos. Vamos modificar nosso `main.yml` para fazer isso:
-
-```yaml
-name: Students API Pipeline
-
-on:
-  push:
-    branch: main
-
-jobs:
-  hello:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Say Hello
-        run: echo "Hello World"
-
-  # Vamos adicionar um novo job chamado listing, que lista tudo que tem dentro do repositório
-  listing:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repo
-        # Quando usamos uma action usamos o atributo uses ao invés de run
-        uses: actions/checkout@v2
-      - name: List all files
-        run: ls
-```
-
-Vamos fazer um novo commit e verificar o resultado.
-
-![Listing job](images/5-listing-job.png)
-
-Quando chegamos no painel da _pipeline_ executada, podemos ver que existem dois _jobs_: **hello** e **listing**.
-
-![Hello and Listing jobs](images/6-hello-and-listing.png)
-
-Quando abrimos os detalhes do _job listing_ podemos ver que a _action_ **checkout** cria dois _steps_ extras: _Checkout repo_ e _Post checkout_. Porém também foi criado nosso _step_ **List all files**, se olharmos ele veremos que ele nos mostra uma lista com todos os arquivos e diretórios do repositório.
-
-![Listing job details](images/7-listing-job-details.png)
 
 ## Atividade Proposta
 
