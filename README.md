@@ -14,13 +14,13 @@ A seguir está uma breve planejamento das aulas que teremos:
 
 4. Implementação de **Testes unitários** em plataformas em **NodeJS**.
 
-5. Introdução ao **Firebase** para fazer _hosting_ de um **app Web**.
+5. Construção de um pipeline de **CI/CD** básico com o **Github Actions**.
 
-6. Construção de um pipeline de **CI/CD** básico com o **Github Actions**.
+6. Integração com **PostgresSQL** usando **TypeORM**
 
 7. Introdução ao **Docker**, construção de um **Dockerfile** para nossa aplicação.
 
-8. Introdução à serviços em nuvem por meio de um serviço **Cloud** à ser decidido.
+8. Criação de uma **Máquina Virtual** dentro da **Google Cloud**.
 
 9. **Relatório Final**: Apresentação dos projetos e fechamento da matérias prática.
 

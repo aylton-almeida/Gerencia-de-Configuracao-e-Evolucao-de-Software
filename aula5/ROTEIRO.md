@@ -1,57 +1,101 @@
 # Aula 5 - Roteiro
 
-Nesta aula, mostrarei como criar um projeto no **Firebase** configurá-lo a fim de colocar nosso app web no ar.
+Para essa aula mostraremos como **implementar** e **executar** **testes unitários**. Para isso, usaremos as bibliotecas **Jest** para executar os testes e **supertest** para construi-los.
+Nesta aula mostrarei como construir um _pipeline_ usando o **Github Actions** com o objetivo de automatizar o processo de _build_ e _teste_ de um projeto, assim como o _deploy_ dele. Essa pratica também é conhecida como _CI_ (Continuous Integration) e _CD_ (Continuous Delivery).
 
-## Executando e interpretando os resultados
+## Preparando uma pipeline simples
 
-Inicialmente vamos aprender como executar testes em nossa aplicação. Para definir um arquivo de teste basta adicionar a extensão `.test` no arquivo, temos um exemplo dentro de `tests/controllers` com o arquivo `studentController.test.ts`. Esse arquivo tem como objetivo testar o arquivo `studentController.ts`, localizado dentro de `src/controllers`.
+Para criar uma pipeline pelo **Github Actions** basta criarmos as pastas `.github/workflows` no diretório de nosso repositório e dentro dela criarmos um arquivo dentro `main.yml` (`yml` ou `yaml` é um formato de estruturação de dados moderno, leia mais sobre [aqui](https://pt.wikipedia.org/wiki/YAML)).
 
-![StudentController tests](images/test-example.png)
+![Main.yml](images/1-main-yml.png)
 
-Em nosso projeto, executamos os testes por meio do comando `npm run test`. Abaixo podemos ver como é um _output_ positivo.
+Tendo criado nosso arquivo, precisamos agora escrever dentro dele o que nossa _pipeline_ deverá fazer. Para o propósito dessa aula, queremos **instalar os pacotes** necessários para nossa aplicação, fazer o _build_ do app e executar os **testes unitários**. Futuramente também iremos criar um _deploy_ para o servidor.
 
-![Running correct tests](images/running-correct-tests.png)
+Para começar, vamos ver alguns comandos básicos do **Github Actions**, lembrando que a documentação completa pode ser encontrada [aqui](https://docs.github.com/en/actions).
 
-Na imagem é possível ver que 2 _Suites_ (ou arquivos) foram executados, esses que continham 3 testes. Todos os testes passaram como podemos ver por meio da palavra **pass** ao lado do nome de cada arquivo. Porém o que acontece caso um teste falhe? Vamos alterar o arquivo `base.test.ts` da seguinte forma e rodar nossos testes.
+```yaml
+# O atributo name define o nome de nossa pipeline, para que possamos localizá-la no gitHub.
+name: Students API Pipeline
 
-![Running wrong tests](images/wrong-test.png)
+# O atributo on define quando um pipeline deverá ser executado. Nessa caso precisamos que ele seja
+# executado quando um novo push for feito ao repositório na branch main
+on:
+  push:
+    branch: main
 
-Esse teste esperava ver que a rota `/ping` retornasse uma mensagem `pong`, porém ao mudarmos a resposta esperada, o teste passou a falhar. Como podemos ver, a ferramenta não só mostra que **1 teste falhou**, como também que **2 passaram** do total de **3 testes**. Ela também mostra em qual _assertion_ ele encontrou o erro, ou seja, qual parte do teste não deu certo.
+# O atributo jobs define os jobs que serão executados.
+jobs:
+  # Inicialmente vamos declarar um job com o nome hello, que fará um simples 'hello world'
+  hello:
+    # O atributo runs-on define em qual ambiente o job será executado. Nesse caso usaremos um ambiente Ubuntu
+    runs-on: ubuntu-latest
 
-## Implementando os testes
+    # O atributo steps define os passos que serão executados durante o job.
+    steps:
+      # Nesse caso, teremos somente um step chamado 'Say Hello' que simplesmente imprimirá o texto 'Hello World'
+      - name: Say Hello
+        run: echo "Hello World"
+```
 
-Sabendo ler os resultados, vamos agora ver como fazemos um teste. Para isso estudaremos o teste da rota `/ping`. Ela é uma rota bem simples, simplesmente retorna a palavra `pong`. Vamos então, para o arquivo `tests/base.test.ts`.
+Insira o código acima dentro de `main.yml`, crie um novo **commit** e envie para o **Github** por meio de um **push**.
 
-![Base test](images/base-test.png)
+![Say Hello Pipeline](images/2-say-hello.png)
 
-Nele, importamos nosso **app flask** assim como a biblioteca **supertest**. Nosso objetivo é usa-la a fim de testar a rota `/ping`. Para isso usamos a função `describe()` para definir um bloco de testes e a função `it()` para definir o caso de teste. Por estarmos testando uma requisição **REST**, a função de teste deve ser assíncrona, recebendo a **keyword** `async`. Dessa mesma forma, ao chamarmos a função do **supertest** colocamos antes a palavra `await`, de forma que o teste só se da por terminado quando ela tiver acabado de fato. Após chamarmos o método `supertest` passando nosso **app** como parâmetro, precisamos chamar o método **REST** da rota a ser testada, sendo no caso o método **GEt**, recebendo uma `string` contendo a rota de fato. Em seguida usamos uma função de _assertion_, a `expect`, que como esperado, espera que o resultado recebido seja semelhante ao parâmetro passado. No caso, ela espera que o resultado da requisição seja **200**, código **HTTP** para OK. Por fim recebemos a resposta da requisição e utilizamos novamente o `expect`, dessa vez para ver se o `body` contém a mensagem esperada `pong`.
+Se formos até o **Github**, entrarmos em nosso repositório e acessarmos a seção **actions** veremos que a pipeline foi executada com sucesso.
 
-Para entendermos melhor o que foi explicado vamos fazer um exemplo básico. Vamos criar um novo arquivo para testes chamado `example.test.ts`
+![Pipeline successful](images/3-pipeline-successful.png)
 
-![Example test](images/example-test.png)
+Se selecionarmos a _pipeline_ e escolhermos o _job hello_, podemo ver os _steps_ executados no job. No caso toda **pipeline** no **Github Actions** possui dois _steps_ padrão: o **Set up job** e **Complete Job**, que preparam o ambiente para execução de nossa _pipeline_. No nosso caso, também é possível ver o _step_ _Say Hello_, que simplesmente imprime o texto 'Hello World', como instruímos ele a fazer.
 
-Nele vamos descrever nosso primeiro bloco de testes para uma nova função na rota `/hello`, que deveria nos retornar uma saudação.
+![Pipeline details](images/4-pipeline-details.png)
 
-![Describe and it test](images/describe-it-test.png)
+Agora que sabemos o básico do **Github Actions** vamos explorar um outro recurso muito importante. Esse recuso são as **actions**, que são repositórios públicos que definem ações usadas com frequência dentro de _pipelines_. Um exemplo muito usado é a [**checkout**](https://github.com/actions/checkout) que nos permite fazer o **checkout** em nosso repositório durante a _pipeline_, de forma a usarmos seus arquivos durante ela.
+Um exemplo simples é usa-la para entrar no repositório e listar todos diretórios e arquivos. Vamos modificar nosso `main.yml` para fazer isso:
 
-Após termos preparado nossa estrutura base vamos definir nossa rota dentro do arquivo `src/routes.ts`. Nela, recebemos um nome e retornamos uma saudação com o nome enviado, por exemplo, se enviarmos Jorge, receberemos `Hello Jorge`.
+```yaml
+name: Students API Pipeline
 
-![Hello Route](images/hello-route.png)
+on:
+  push:
+    branch: main
 
-Para termos certeza que ela funciona, basta finalizarmos seu teste. Para isso, vamos utilizar o **supertest** para fazer uma requisição **POST**, com um nome no **body**.
+jobs:
+  hello:
+    runs-on: ubuntu-latest
 
-![Post request](images/post-request-test.png)
+    steps:
+      - name: Say Hello
+        run: echo "Hello World"
 
-Tudo certo, porém nosso teste não está de fato verificando nada. Para resolver isso vamos usar o que aprendemos e verificar se ele retorna um código **200**, assim como uma saudação com o nome enviado.
+  # Vamos adicionar um novo job chamado listing, que lista tudo que tem dentro do repositório
+  listing:
+    runs-on: ubuntu-latest
 
-![Test finished](images/test-done.png)
+    steps:
+      - name: Checkout repo
+        # Quando usamos uma action usamos o atributo uses ao invés de run
+        uses: actions/checkout@v2
+      - name: List all files
+        run: ls
+```
 
-Por fim, basta executarmos o test como o comando `npm run test` e verificar que tudo está certo.
+Vamos fazer um novo commit e verificar o resultado.
 
-![Running last test](images/run-last-test.png)
+![Listing job](images/5-listing-job.png)
+
+Quando chegamos no painel da _pipeline_ executada, podemos ver que existem dois _jobs_: **hello** e **listing**.
+
+![Hello and Listing jobs](images/6-hello-and-listing.png)
+
+Quando abrimos os detalhes do _job listing_ podemos ver que a _action_ **checkout** cria dois _steps_ extras: _Checkout repo_ e _Post checkout_. Porém também foi criado nosso _step_ **List all files**, se olharmos ele veremos que ele nos mostra uma lista com todos os arquivos e diretórios do repositório.
+
+![Listing job details](images/7-listing-job-details.png)
 
 ## Atividade Proposta
 
-Para utilizar os conhecimento aprendidos nessa aula, você deveria criar testes para as funções implementadas em nossas ultimas duas aulas. Para isso, basta usar as bibliotecas **jest** e **supertest** já instaladas e escrever testes para pelo menos **duas rotas** desenvolvidas.
+Para colocarmos em prática o que vimos hoje, vamos criar uma pipeline simples para o nosso projeto. Nela devemos fazer o **checkout** dentro dele, rodar todos os testes e executar um _build_, listando ao fim o conteúdo da pasta `dist` com os arquivos prontos para implantação do app. Para isso precisamos fazer os seguintes passos:
 
-Utilize os testes já implementados para as rotas de **GET** e **POST** da **Students API** de exemplo para seus testes.
+- Use o comando `npm install` para instalar as dependências do projeto.
+- Use o comando `npm run test` para rodar os testes.
+- Use o comando `npm run build` para fazer o _build_ do projeto.
+- Use o comando `ls dist` para listar o conteúdo da pasta `dist`.
