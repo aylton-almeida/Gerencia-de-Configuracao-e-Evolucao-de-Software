@@ -94,7 +94,7 @@ Como mencionado, durante nossas aulas práticas usaremos duas aplicações como 
    ```.env
       # API
       NODE_ENV=development
-      APP_PORT=5000
+      PORT=5000
 
       # Web
       NEXT_PUBLIC_API_URL=http://localhost:5000

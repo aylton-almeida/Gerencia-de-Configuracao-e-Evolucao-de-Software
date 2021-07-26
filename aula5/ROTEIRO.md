@@ -126,4 +126,4 @@ Para colocarmos em prática o que vimos hoje, vamos criar uma pipeline simples p
 - Use o comando `npm run build` para fazer o _build_ do projeto.
 - Use o comando `ls dist` para listar o conteúdo da pasta `dist`.
 
-Lembre-se que em uma _pipeline_ segura, caso os testes falhem o _build_ não será executado. Também é interessante declarar nossas variáveis de ambiente (`$NODE_ENV` e `$APP_PORT`) durante as etapas de _test_ e _build_.
+Lembre-se que em uma _pipeline_ segura, caso os testes falhem o _build_ não será executado. Também é interessante declarar nossas variáveis de ambiente (`$NODE_ENV` e `$PORT`) durante as etapas de _test_ e _build_.
