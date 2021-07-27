@@ -2,11 +2,7 @@
 
 Nesta aula iremos aprender a declarar _containers_ usando arquivos `Dockerfile`. Também aprenderemos como fazer a _build_ deles e executa-los, a fim de permitir uma distribuição mais fácil e maior escalabilidade para nossa aplicação.
 
-Para essa aula, preparei um vídeo mostrando como configurar um ambiente **Docker** no **Windows** por meio da utilização do **WSL** (Windows Subsystem for Linux):
-
-<!-- TODO: Colocar link aqui -->
-
-- [Configuração do Docker com WSL]()
+Para instalação do **Docker**, basta baixar o instalador adequado ao seu sistema operacional neste [link](https://www.docker.com/products/docker-desktop).
 
 ## Criando um container Docker
 
@@ -93,6 +89,10 @@ CMD ["npm", "run", "start"]
 Faça as alterações necessárias no `Dockerfile` e crie uma nova imagem com o comando `docker build`. Quando você executá-la verá que não teremos nenhum erro e que ele dirá dois Hellos, um para John e outro para um nome aleatório.
 
 ![Docker Random name](images/7-docker-random-name.png)
+
+## Fazendo deploy de uma imagem docker para o Heroku
+
+<!-- TODO -->
 
 ## Atividade Proposta
 

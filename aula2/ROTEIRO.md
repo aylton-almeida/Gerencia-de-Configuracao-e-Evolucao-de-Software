@@ -70,16 +70,6 @@ Como recomendação, uma feature interessante é uma rota de `update` para os es
     "name": "John Doe",
     "birth": "1999-01-01T00:00:00.000Z",
     "email": "john.doe@email.com",
-    "city": "Belo Horizonte",
-    "courses": [
-      {
-        "name": "Calculo 1",
-        "teacher": "Teacher 1"
-      },
-      {
-        "name": "Calculo 2",
-        "teacher": "Teacher 2"
-      },
-    ]
+    "city": "Belo Horizonte"
   }
 ```
