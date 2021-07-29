@@ -90,17 +90,51 @@ Faça as alterações necessárias no `Dockerfile` e crie uma nova imagem com o 
 
 ![Docker Random name](images/7-docker-random-name.png)
 
-## Fazendo deploy de uma imagem docker para o Heroku
-
-<!-- TODO -->
-
-## Atividade Proposta
+## Atividade Proposta 1
 
 Para colocarmos em prática o que vimos hoje, vamos criar um container para nossa **Students API**. Para isso precisaremos seguir passos semelhantes aos vistos durante esse roteiro. Alguns lembretes:
 
 - Lembre-se que em nossa API, precisamos de muito mais do que somente o arquivo `index.js`, para isso use o `.`, que indica tudo do diretório.
-- Alem disso, precisaremos de nossas 3 variáveis de ambiente, `PORT`, `NODE_ENV` e `DB_URL` ao invés de usarmos somente a `NAME`.
+- Alem disso, precisaremos de nossas 3 variáveis de ambiente, `PORT`, `NODE_ENV` e `DATABASE_URL` ao invés de usarmos somente a `NAME`.
 - Lembre-se que para executarmos o comando `npm run start` precisamos instalar nossas dependências (`npm install`) e fazer um novo _build_ de nossa api (`npm run build`).
 - Por ultimo, para expormos uma porta do container para conexões externas, basta usar a _flag_ `-p` para nosso comando `docker run` (ex: `docker run -p 5000:5000 students:latest`).
 
-Ao terminar, crie um **commit** com sua `Dockerfile`.
+## Fazendo deploy de uma imagem docker para o Heroku
+
+Agora que temos nossa **Students API** dentro de um container podemos fazer o _deploy_ dela para um servidor. Para esse roteiro vamos usar o **heroku**. O primeiro passo é visitar nosso projeto no heroku criado na ultima aula e alterar as variáveis de ambiente de forma a colocar as necessárias para execução de nosso app. Para isso abra seu projeto e siga à página _settings_ e selecione a opção _reveal config vars_.
+
+![Heroku env vars](images/8-heroku-env-vars.png)
+
+Como podemos ver nossa variável `DATABASE_URL` já foi colocada automaticamente ao adicionarmos o _plugin_ de banco de dados na aula passada. Porém ainda precisamos adicionar tanto a variável `NODE_ENV` quanto `PORT`. A variável `PORT` é automaticamente atualizada pelo **heroku**m então não precisamos nos preocupar com ela. Já o `NODE_ENV` devemos adicionar às configurações, para isso basta preencher o formulário da seguinte forma e clicar em **Add**.
+
+![Add name var](images/9-add-name-var.png)
+
+Tendo adicionado nossa variável `NAME`, vamos agora baixar a **CLI** (Interface de Linha de Comando) do **heroku**. Com ela poderemos fazer o _deploy_ de nosso container com apenas alguns comandos. Para instalá-la basta seguir as instruções deste [link](https://devcenter.heroku.com/articles/heroku-cli#download-and-install). Após finalizar a instalação execute o comando `heroku --version` e verifique que ele mostra a versão instalada da **CLI**.
+
+![Heroku version](images/10-heroku-version.png)
+
+Agora execute o comando `heroku login` para se autenticar por meio do browser.
+
+![Heroku login](images/11-heroku-login.png)
+![Heroku browser login](images/12-browser-login.png)
+![Heroku logged in](images/13-terminal-loggedin.png)
+
+Terminada a configuração inicial, vamos agora executar os comandos de _deploy_. É importante ressalta que você precisa ter executado o comando `docker build` para sua **Students API** e que o container deve estar rodando corretamente para que o processo funcione. Em seguida execute os seguintes comandos de dentro do terminal no **VSCode** com sua **Students API**.
+
+O comando `heroku container:login` apenas no autentica com o _registry_ (sistema de armazenamento de containers) do **heroku**. Já o comando `heroku container:push web --app [PROJECT_NAME]` faz o _push_ da nossa imagem _docker_ para esse _registry_. Ao rodar esse comando lembre-se de substituir o o nome do app pelo nome do seu projeto no **heroku**.
+
+![Container login](images/14-container-login.png)
+![Container push](images/15-container-push.png)
+
+Por fim basta executarmos o comando `heroku container:release web --app [PROJECT_NAME]`, lembrando de usar o nome do seu projeto, para fazermos o _deploy_ dessa nova versão.
+
+![Container deploy](images/16-container-deploy.png)
+
+Para conferirmos que tudo está certo, basta ir ao seu projeto no **heroku**, clicar em _open app_ e adicionar alguma rota da api como `/ping` na url. Caso tudo esteja certo, você deveria ver uma resposta vinda direto de sua **Students API**.
+
+![Open app](images/17-open-app.png)
+![Opened app](images/18-opened-app.png)
+
+## Atividade proposta 2
+
+Como segunda atividade, atualize também sua pipeline no **Github Actions** a fim de hospedar sua aplicação no **heroku** junto do banco de dados criado na ultima aula. Para isso crie um novo _job_ que será responsável por ler as variáveis de ambiente para fazer login no **heroku** e executar os comandos aprendidos durante esse roteiro. Lembre-se também de atualizar as variáveis de ambiente do **heroku** com as usadas em nossa **Students API**.
