@@ -1,12 +1,12 @@
 # Aula 6 - Roteiro
 
-O objetivo desta aula é mostrar como conectar nossa **Students API** à um banco de dados remoto. Para isso usaremos um banco **PostgresSQL**, hospedado no serviço **Heroku**, e a biblioteca **TypeORM**, responsável por fazer a conexão entre nossa API e nosso BD.
+O objetivo desta aula é mostrar como conectar nossa **Students API** à um banco de dados remoto. Para isso usaremos um banco **PostgreSQL**, hospedado no serviço **Heroku**, e a biblioteca **TypeORM**, responsável por fazer a conexão entre nossa API e nosso BD.
 
 Um ORM, ou _Object Relational Mapper_, é uma biblioteca que nos permite trabalhar com objetos e relacionamentos entre diferentes bancos de dados. Para isso, ele abstrai a lógica da linguagem do banco, como o **SQL** no caso, para uma linguagem comum à API, no caso **Typescript**.
 
 Abaixo está disponível um video mostrando como configurar um banco de dados no Heroku:
 
-[Configurando um projeto e banco de dados no Heroku](https://1drv.ms/u/s!Au3pZz4ON4ATmuRnffnkDkHVhxpFAA?e=09DHMH)
+[Configurando um projeto e banco de dados no Heroku](https://www.youtube.com/watch?v=8ceTDyHYW5E)
 
 ## Usando TypeORM para conectar oa nosso banco de dados
 
@@ -14,7 +14,7 @@ Para começar, vamos fazer a instalação do TypeORM e suas dependências com o 
 
 ![NPM install](images/1-npm-install.png)
 
-No comando acima estamos instalando o **TypeORM** e duas dependências, **pg** e **reflect-metadata**. A mais relevante é a primeira, que é um _driver_ necessário para conexão à um banco de dados postgrês enquanto.
+No comando acima estamos instalando o **TypeORM** e duas dependências, **pg** e **reflect-metadata**. A mais relevante é a primeira, que é um _driver_ necessário para conexão à um banco de dados postgres enquanto.
 
 Tendo instalado nossas dependências iniciais, vamos agora modificar nossas variáveis de ambiente, inserindo nossa url de conexão ao bando de dados obtida do Heroku. Para isso, vamos modificar nosso `.env.example` e nosso `.env`, adicionando a variável `DATABASE_URL` e colocando o valor da url do banco de dados obtida do Heroku.
 

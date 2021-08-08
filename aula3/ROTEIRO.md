@@ -1,6 +1,6 @@
 # Aula 3 - Roteiro
 
-O objetivo desta aula é armazenar o código de nossa aplicação em um **repositório remoto**. Para isso, usaremos o **Github**, serviço gratuíto que nos permite criar **repositórios remotos**, aonde conseguimos **armazenar** e **gerenciar** as versões de nossos projetos, assim como gerenciar as **atividades** que devem ser realizadas.
+O objetivo desta aula é armazenar o código de nossa aplicação em um **repositório centralizado**. Para isso, usaremos o **Github**, serviço gratuíto que nos permite criar **repositórios remotos**, aonde conseguimos **armazenar** e **gerenciar** as versões de nossos projetos, assim como gerenciar as **atividades** que devem ser realizadas.
 
 ## Gerenciando versões remotamente com o Github
 

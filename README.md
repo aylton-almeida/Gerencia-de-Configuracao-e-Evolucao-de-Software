@@ -10,7 +10,7 @@ A seguir está uma breve planejamento das aulas que teremos:
 
 2. Introdução ao **Git**, como criar projetos e gerenciá-los localmente.
 
-3. Utilização do **Git remoto** por meio da integração com o **Github**.
+3. Utilização do **Git centralizado** por meio da integração com o **Github**.
 
 4. Implementação de **Testes unitários** em plataformas em **NodeJS**.
 

@@ -8,8 +8,8 @@ Para realização desse objetivo esse roteiro mostrará como fazer a **configura
 
 Existem dois videos de apoio para essa aula:
 
-- [**Configuração de um VM Windows:**](https://1drv.ms/v/s!Au3pZz4ON4ATmuEZJ4ksiheelHn0rA?e=ZflF6K)
-- [**Configuração de um computador**](https://1drv.ms/v/!Au3pZz4ON4ATmuJEsVDnLl-SQrM-TA?e=XZiv8h)
+- [**Configuração de um VM Windows:**](https://www.youtube.com/watch?v=AUlJovdPaBQ)
+- [**Configuração de um computador**](https://www.youtube.com/watch?v=_LYUaMB2Fo4)
 
 ## Configuração do NodeJS
 
