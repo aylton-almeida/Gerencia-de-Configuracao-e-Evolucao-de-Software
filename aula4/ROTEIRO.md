@@ -2,6 +2,10 @@
 
 Para essa aula mostraremos como **implementar** e **executar** **testes unitários**. Para isso, usaremos as bibliotecas **Jest** para executar os testes e **supertest** para construi-los.
 
+Vídeo de apoio para aula:
+
+- [Testes](https://youtu.be/amhmS3E_4Kw)
+
 ## Executando e interpretando os resultados
 
 Inicialmente vamos aprender como executar testes em nossa aplicação. Para definir um arquivo de teste basta adicionar a extensão `.test` no arquivo, temos um exemplo dentro de `tests/controllers` com o arquivo `studentController.test.ts`. Esse arquivo tem como objetivo testar o arquivo `studentController.ts`, localizado dentro de `src/controllers`.

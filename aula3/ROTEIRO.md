@@ -2,6 +2,10 @@
 
 O objetivo desta aula é armazenar o código de nossa aplicação em um **repositório centralizado**. Para isso, usaremos o **Github**, serviço gratuíto que nos permite criar **repositórios remotos**, aonde conseguimos **armazenar** e **gerenciar** as versões de nossos projetos, assim como gerenciar as **atividades** que devem ser realizadas.
 
+Vídeo de apoio para aula:
+
+- (**Git Centralizados**)[https://youtu.be/T6GdTV9p9ms]
+
 ## Gerenciando versões remotamente com o Github
 
 O primeiro passo é criar um conta no **Github**, para isso, basta seguir este [link](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home) e preencher com seus dados de cadastro.
