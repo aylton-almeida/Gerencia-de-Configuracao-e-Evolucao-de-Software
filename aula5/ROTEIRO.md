@@ -2,6 +2,10 @@
 
 Nesta aula mostrarei como construir um _pipeline_ usando o **Github Actions** com o objetivo de automatizar o processo de _build_ e _teste_ de um projeto, assim como o _deploy_ dele. Essa pratica também é conhecida como _CI_ (Continuous Integration) e _CD_ (Continuous Delivery).
 
+Vídeo de apoio para aula:
+
+- [Github Actions](https://youtu.be/PZsKOOSFy8g)
+
 ## Preparando uma pipeline simples
 
 Para criar uma pipeline pelo **Github Actions** basta criarmos as pastas `.github/workflows` no diretório de nosso repositório e dentro dela criarmos um arquivo dentro `main.yml` (`yml` ou `yaml` é um formato de estruturação de dados moderno, leia mais sobre [aqui](https://pt.wikipedia.org/wiki/YAML)).

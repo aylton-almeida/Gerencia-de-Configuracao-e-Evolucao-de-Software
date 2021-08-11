@@ -4,7 +4,7 @@ Para essa aula mostraremos como **implementar** e **executar** **testes unitári
 
 Vídeo de apoio para aula:
 
-- [Testes](https://youtu.be/amhmS3E_4Kw)
+- [Testes](https://youtu.be/8BlMSxiYid0)
 
 ## Executando e interpretando os resultados
 
