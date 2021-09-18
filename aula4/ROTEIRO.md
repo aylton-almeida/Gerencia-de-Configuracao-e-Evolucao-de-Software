@@ -58,4 +58,4 @@ Por fim, basta executarmos o test como o comando `npm run test` e verificar que 
 
 Para utilizar os conhecimento aprendidos nessa aula, você deveria criar testes para as funções implementadas em nossas ultimas duas aulas. Para isso, basta usar as bibliotecas **jest** e **supertest** já instaladas e escrever testes para pelo menos **duas rotas** desenvolvidas.
 
-Utilize os testes já implementados para as rotas de **GET** e **POST** da **Students API** de exemplo para seus testes.
+Utilize os testes já implementados para as rotas de **GET**, **POST**, **PUT** e **DELETE** da **Students API** de exemplo para seus testes.
