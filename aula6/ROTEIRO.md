@@ -65,4 +65,8 @@ Agora, se fizermos uma nova requisição **POST** passando um estudante novo, ve
 
 ## Atividade Proposta
 
-Para colocarmos em prática o que vimos hoje, vamos atualizar nossa **Students API** para usar sempre dados armazenados em nosso banco de dados **Postgres** no **Heroku**. Para isso atualize as rotas já criadas nas aulas anteriores, de forma que quando você executa-las, o resultado deverá ser consultado e/ou armazenado em nosso banco de dados. Além disso, atualize nossos testes para que eles funcionem junto com nosso banco de dados.
+Para colocarmos em prática o que vimos hoje, vamos atualizar nossa **Students API** para usar sempre dados armazenados em nosso banco de dados **Postgres** no **Heroku**. Para isso atualize as rotas já criadas nas aulas anteriores, de forma que quando você executa-las, o resultado deverá ser consultado e/ou armazenado em nosso banco de dados. Além disso, atualize nossos testes para que eles funcionem junto com nosso banco de dados. Para isso, você pode usar de mocks para evitar que os testes possam rodar localmente mesmo quando não conectados à um banco de dados.
+
+**Test Mock:** Tendo em vista que a finalidade de testes unitários é testar apenas uma função ou método, pode ser interessante criar um mock das funções que fazem chamadas ao banco de dados. Para isso, utilize `jest.mock` para modificar os valores de retorno que determinadas funções possuem em seu código. Abaixo está um exemplo do mock da função `addStudent`, localizada no caminho `'../../src/db/students'` em relação ao arquivo de teste. Nela, é pressuposto que ao chamar a função, ela retorna uma `Promise` com o valor de um estudante com id 2.
+
+![Jest Mock](images/13-jest-mock.png)
